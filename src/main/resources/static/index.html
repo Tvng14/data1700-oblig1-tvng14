@@ -3,15 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>data1700 - oblig 1</title>
+    <script src="kinobillett.js" defer></script>
 </head>
 <body>
 <h1>Bestilling av kinobilletter</h1>
-<p>Velg film:</p>
-<p>Antall:</p>
-<p>Fornavn:</p>
-<p>Etternavn:</p>
-<p>Telefonnr:</p>
-<p>E-post:</p>
+<p>Velg film:
+    <select id="filmValg" onchange="velgFilm(this.value)">
+        <option value="" disabled selected>Velg film her</option>
+        <option value="film 1">film 1</option>
+        <option value="film 2">film 2</option>
+    </select>
+</p>
+<p>Antall:
+    <input type="number" id="antallBilletter" min="1">
+</p>
+<div id="personligInfo">
+    <p>Fornavn:
+        <input type="text">
+    </p>
+    <p>Etternavn:
+        <input type="text">
+    </p>
+    <p>Telefonnr:
+        <input type="tel">
+    </p>
+    <p>E-post:
+        <input type="text">
+    </p>
+</div>
+
 <button>Kjøp billett</button>
 <h2>Alle billetter</h2>
 <button>Slett alle billettene</button>
