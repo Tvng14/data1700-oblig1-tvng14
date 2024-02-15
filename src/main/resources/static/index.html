@@ -19,24 +19,20 @@
         <input type="number" onchange="sjekkAntallBilletter()" id="antallBilletter" min="1">
         <span id="feilAntall" style="color: red;"></span>
     </p>
-    <div id="personligInfo">
-        <p>Fornavn:
+    <table>
+        <tr><td>Fornavn:</td><td>
             <input type="text" onchange="sjekkFornavn()" id="innFornavn"/>
             <span id="feilFornavn" style="color: red;"></span>
-        </p>
-        <p>Etternavn:
+        <tr><td>Etternavn:</td><td>
             <input type="text" onchange="sjekkEtternavn()" id="innEtternavn"/>
             <span id="feilEtternavn" style="color: red;"></span>
-        </p>
-        <p>Telefonnr:
+        <tr><td>Telefonnr:</td><td>
             <input type="tel" onchange="sjekkTlf()" id="innTlf"/>
             <span id="feilTlf" style="color: red;"></span>
-        </p>
-        <p>E-post:
+        <tr><td>E-post:</td><td>
             <input type="text" onchange="sjekkEpost()" id="innEpost"/>
             <span id="feilEpost" style="color: red;"></span>
-        </p>
-    </div>
+    </table>
 </form>
 <button type="button" onclick="bestillBillett()">Kjøp billett</button>
 <h2>Alle billetter</h2>
