@@ -16,7 +16,8 @@
     </select>
     </p>
     <p>Antall:
-    <input type="number" id="antallBilletter" min="1">
+        <input type="number" onchange="sjekkAntallBilletter()" id="antallBilletter" min="1">
+        <span id="feilAntall" style="color: red;"></span>
     </p>
     <div id="personligInfo">
         <p>Fornavn:
