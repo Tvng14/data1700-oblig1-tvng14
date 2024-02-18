@@ -7,35 +7,41 @@
 </head>
 <body>
 <h1>Bestilling av kinobilletter</h1>
-<form id="billettInfo">
-    <p>Velg film:
+<div>
+    <label for="velgFilm">Velg film:
     <select id="velgFilm" onchange="velgFilm()">
         <option value="" disabled selected>Velg film her</option>
         <option value="film 1">film 1</option>
         <option value="film 2">film 2</option>
     </select>
-    </p>
-    <p>Antall:
-        <input type="number" onchange="sjekkAntallBilletter()" id="antallBilletter" min="1">
+    </label>
+</div>
+<br>
+<div>
+    <label for="antallBilletter">Antall:
+        <input type="number" id="antallBilletter" min="1" max="10">
         <span id="feilAntall" style="color: red;"></span>
-    </p>
+    </label>
+</div>
+<br>
     <table>
         <tr><td>Fornavn:</td><td>
-            <input type="text" onchange="sjekkFornavn()" id="innFornavn"/>
+            <input type="text" id="innFornavn"/>
             <span id="feilFornavn" style="color: red;"></span>
         <tr><td>Etternavn:</td><td>
-            <input type="text" onchange="sjekkEtternavn()" id="innEtternavn"/>
+            <input type="text" id="innEtternavn"/>
             <span id="feilEtternavn" style="color: red;"></span>
         <tr><td>Telefonnr:</td><td>
-            <input type="tel" onchange="sjekkTlf()" id="innTlf"/>
+            <input type="tel" id="innTlf"/>
             <span id="feilTlf" style="color: red;"></span>
         <tr><td>E-post:</td><td>
-            <input type="text" onchange="sjekkEpost()" id="innEpost"/>
+            <input type="text" id="innEpost"/>
             <span id="feilEpost" style="color: red;"></span>
     </table>
-</form>
-<button type="button" onclick="bestillBillett()">Kjøp billett</button>
-<h2>Alle billetter</h2>
+<button type="button" onclick="bestillBillett()"> Kjøp billett</button>
+    <h2>Alle billetter</h2>
+<p id="valgtFilm"></p>
+<div id="visBilletter"></div>
 <button type="button" onclick="slettBilletter()">Slett alle billettene</button>
 </body>
 </html>

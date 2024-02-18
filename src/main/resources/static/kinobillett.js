@@ -1,48 +1,83 @@
-
+alleBilletter = [];
 function velgFilm(){
+    valgtFilm = document.getElementById("velgFilm").value;
 }
-function sjekkAntallBilletter(){
+function bestillBillett() {
+    const filmTittel = document.getElementById("velgFilm").value;
+    const antall = document.getElementById("antallBilletter").value;
+    const fornavn = document.getElementById("innFornavn").value;
+    const etternavn = document.getElementById("innEtternavn").value;
+    const telefonnr = document.getElementById("innTlf").value;
+    const epost = document.getElementById("innEpost").value;
+
+    const billett = {
+        filmTittel: filmTittel,
+        antall: antall,
+        fornavn: fornavn,
+        etternavn: etternavn,
+        telefonnr: telefonnr,
+        epost: epost
+    };
     let antallBilletter = document.getElementById("antallBilletter").value;
+    let innFornavn = document.getElementById("innFornavn").value;
+    let innEtternavn = document.getElementById("innEtternavn").value;
+    let innTlf = document.getElementById("innTlf").value;
+    let innEpost = document.getElementById("innEpost").value;
+
     if (antallBilletter == "") {
         document.getElementById("feilAntall").innerText = "Vennligst velg antall billetter";
     } else {
         document.getElementById("feilAntall").innerText = "";
     }
-}
-function sjekkFornavn(){
-    let innFornavn = document.getElementById("innFornavn").value;
+
     if (innFornavn.trim() == "") {
-        document.getElementById("feilFornavn").innerText = "Vennligst fyll inn fornavn";
+        document.getElementById("feilFornavn").innerText = "Vennligst fyll ut fornavn";
     } else {
         document.getElementById("feilFornavn").innerText = "";
     }
-}
-function sjekkEtternavn(){
-    let innEtternavn = document.getElementById("innEtternavn").value;
+
     if (innEtternavn.trim() == "") {
-        document.getElementById("feilEtternavn").innerText = "Vennligst fyll inn etternavn";
+        document.getElementById("feilEtternavn").innerText = "Vennligst fyll ut etternavn";
     } else {
         document.getElementById("feilEtternavn").innerText = "";
     }
-}
-function sjekkTlf(){
-    let innTlf = document.getElementById("innTlf").value;
+
     if (innTlf.trim() == "") {
-        document.getElementById("feilTlf").innerText = "Vennligst fyll inn telefonnummer";
+        document.getElementById("feilTlf").innerText = "Vennligst fyll ut telefonnummer";
     } else {
         document.getElementById("feilTlf").innerText = "";
     }
-}
-function sjekkEpost() {
-    let innEpost = document.getElementById("innEpost").value;
+
     if (innEpost.trim() == "") {
         document.getElementById("feilEpost").innerText = "Vennligst fyll ut e-post";
     } else {
         document.getElementById("feilEpost").innerText = "";
     }
-}
-function bestillBillett() {
-}
-function slettBilletter(){
 
+    if (filmTittel.trim() !== "" && antall !== "" && fornavn.trim() !== "" && etternavn.trim() !== "" && telefonnr.trim() !== "" && epost.trim() !== "") {
+        alleBilletter.push(billett);
+        document.getElementById("valgtFilm").value = "";
+        document.getElementById("antallBilletter").value = "";
+        document.getElementById("innFornavn").value = "";
+        document.getElementById("innEtternavn").value = "";
+        document.getElementById("innTlf").value = "";
+        document.getElementById("innEpost").value = "";
+    }
+    let visBilletter = document.getElementById("visBilletter");
+    const listeBilletter = alleBilletter.map(function(info) {
+
+            return "<li>Film: " + info.filmTittel +
+                "<br>Antall: " + info.antall +
+                "<br>Fornavn: " + info.fornavn +
+                "<br>Etternavn: " + info.etternavn +
+                "<br>Telefonnr: " + info.telefonnr +
+                "<br>E-post: " + info.epost + "</li>";
+    });
+    visBilletter.innerHTML = "<ul>" + listeBilletter.join("") + "</ul>";
+}
+
+function slettBilletter() {
+    alleBilletter = [];
+    let tømListe = document.getElementById("visBilletter");
+    tømListe.innerHTML = "";
 }
