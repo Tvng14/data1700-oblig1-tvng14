@@ -1,4 +1,6 @@
 alleBilletter = [];
+const regexEpost = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/;
+const regexTlf = /^(4[0-9]{7}|9[0-9]{7})$/;
 function velgFilm(){
     valgtFilm = document.getElementById("velgFilm").value;
 }
@@ -44,17 +46,24 @@ function bestillBillett() {
 
     if (innTlf.trim() == "") {
         document.getElementById("feilTlf").innerText = "Vennligst fyll ut telefonnummer";
-    } else {
+    } else if (!regexTlf.test(innTlf)) {
+        document.getElementById("feilTlf").innerText = "Ugyldig telefonnummer";
+    }
+    else {
         document.getElementById("feilTlf").innerText = "";
     }
 
     if (innEpost.trim() == "") {
         document.getElementById("feilEpost").innerText = "Vennligst fyll ut e-post";
-    } else {
+    } else if (!regexEpost.test(innEpost)) {
+        document.getElementById("feilEpost").innerText = "Ugyldig e-post";
+    }
+    else {
         document.getElementById("feilEpost").innerText = "";
     }
 
-    if (filmTittel.trim() !== "" && antall !== "" && fornavn.trim() !== "" && etternavn.trim() !== "" && telefonnr.trim() !== "" && epost.trim() !== "") {
+    if (filmTittel.trim() !== "" && antall !== "" && fornavn.trim() !== "" && etternavn.trim() !== "" &&
+        telefonnr.trim() !== "" && regexTlf.test(innTlf) && epost.trim() !== "" && regexEpost.test(innEpost)) {
         alleBilletter.push(billett);
         document.getElementById("valgtFilm").value = "";
         document.getElementById("antallBilletter").value = "";
